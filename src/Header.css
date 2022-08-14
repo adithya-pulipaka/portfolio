@@ -1,0 +1,31 @@
+.header {
+  width: 100%;
+  background-color: black;
+  display: flex;
+}
+.header__title--logo {
+  display: none;
+}
+@media (min-width: 640px) {
+  .header__title {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    padding-right: 1rem;
+    margin-right: 1rem;
+    border-right: 1px solid white;
+  }
+  .header__title--logo {
+    display: block;
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+    padding: 1rem;
+  }
+  .header__title--link {
+    color: white;
+    text-decoration: none;
+  }
+}
