@@ -48,16 +48,77 @@
   display: flex;
   flex-direction: column;
 }
-/* .aboutme,
-.projects,
-.contact {
-  border-bottom: 2px solid black; */
-/* padding-bottom: 2rem;
-} */
+.projects__list {
+  display: flex;
+  flex-wrap: wrap;
+}
 .project-card {
+  flex: 1 0 350px;
+  background-color: var(--clr-gray);
+  color: var(--clr-text-black);
+  margin: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 1rem;
+}
+.project-card__heading {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.project-card__buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.project-card__buttons button {
+  margin: 0.5rem 0;
+}
+
+.contact {
+  background-color: var(--clr-primary);
+  color: var(--clr-secondary);
+}
+.contact h3 {
+  padding-top: 1rem;
+}
+.contact__form div {
+  padding-bottom: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact__form label {
+  padding-right: 1rem;
+  width: 20%;
+}
+.contact__form input,
+.contact__form textarea {
+  width: 75%;
+  min-height: 2rem;
+}
+.required::after {
+  content: "*";
+  color: red;
+  padding-left: 2px;
+}
+.social__links {
+  list-style: none;
+  display: inline-flex;
+  margin: 1rem 2rem;
+}
+.social__links--item a {
+  color: var(--clr-accent);
+  padding: 1rem;
+}
+.btn {
+  padding: 1rem;
+  border-radius: 25px;
+  margin-right: 1rem;
+  border: none;
+  font-weight: bold;
+  background: var(--clr-accent);
+  cursor: pointer;
 }

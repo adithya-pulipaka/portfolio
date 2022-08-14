@@ -4,9 +4,12 @@
   box-sizing: border-box;
 }
 :root {
-  --clr-primary: #303030;
+  /* --clr-primary: #303030; */
+  --clr-primary: #706a6a;
   --clr-secondary: #ffffff;
   --clr-accent: #ff9400;
+  --clr-gray: #d5d5d5;
+  --clr-text-black: #000;
 
   --fs-h1: 2.75rem;
   --fs-h2: 2.25rem;
