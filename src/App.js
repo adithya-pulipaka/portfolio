@@ -11,9 +11,14 @@ import {
   faReact,
 } from "@fortawesome/free-brands-svg-icons";
 import test from "./images/spring-icon.png";
-import { faAt } from "@fortawesome/free-solid-svg-icons";
+import { faAt, faCode, faLaptopCode } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 
 function App() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
   return (
     <div className="App">
       <main>
@@ -113,13 +118,29 @@ function App() {
                 <label htmlFor="name" className="required">
                   Name
                 </label>
-                <input type="text" name="name" id="name" required />
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  required
+                  value={name}
+                  onChange={(event) => setName(event.target.value)}
+                  disabled
+                />
               </div>
               <div>
                 <label htmlFor="email" className="required">
                   Email
                 </label>
-                <input type="email" name="email" id="email" required />
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  required
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
+                  disabled
+                />
               </div>
               <div>
                 <label htmlFor="message" className="required">
@@ -130,10 +151,13 @@ function App() {
                   id="message"
                   rows="10"
                   required
+                  value={message}
+                  onChange={(event) => setMessage(event.target.value)}
+                  disabled
                 ></textarea>
               </div>
               <div>
-                <button>Send Message</button>
+                <button disabled>Send Message</button>
               </div>
             </form>
           </div>

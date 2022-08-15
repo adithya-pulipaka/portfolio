@@ -3,7 +3,6 @@
 .text-accent {
   color: var(--clr-accent);
 }
-/* intro section */
 .intro {
   padding-bottom: 2rem;
 }
@@ -20,8 +19,6 @@
   object-position: top;
   border-radius: 50%;
 }
-
-/* About Me */
 .aboutme {
   background-color: var(--clr-primary);
   color: var(--clr-secondary);
@@ -29,6 +26,14 @@
 }
 .aboutme .section__heading {
   margin-top: 0;
+}
+.aboutme .section__heading::after {
+  content: "";
+  display: block;
+  width: 5rem;
+  height: 1px;
+  margin: 0.5em auto 1em;
+  background: var(--clr-accent);
 }
 .stack__items {
   display: flex;
@@ -121,4 +126,39 @@
   font-weight: bold;
   background: var(--clr-accent);
   cursor: pointer;
+}
+@media screen and (min-width: 800px) {
+  .intro {
+    display: grid;
+    grid-template-areas:
+      "image heading"
+      "image title";
+    margin-top: 5rem;
+  }
+  .intro__heading {
+    grid-area: heading;
+    margin-right: auto;
+    margin-left: 5rem;
+  }
+  .intro__title {
+    grid-area: title;
+    margin-right: auto;
+    margin-left: 5rem;
+  }
+  .intro__picture {
+    margin-left: auto;
+    /* margin-right: auto; */
+    grid-area: image;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+  }
+  .project-card__buttons {
+    flex-direction: row;
+  }
+  .project-card__buttons button {
+    margin: 0 0.5rem;
+  }
 }
