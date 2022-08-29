@@ -125,76 +125,7 @@ const AboutMe = () => {
           </div>
         </div>
       </section>
-      <section className="color-secondary -mx-8 text-center pt-4">
-        <h2 className="app-accent mt-0 text-3xl mb-7">Contact Me</h2>
-        <div className="contact__form">
-          <form>
-            <div className="pb-4 w-full flex items-center justify-center">
-              <label
-                htmlFor="name"
-                className="pr-4 w-[20%] after:content-['*'] after:text-red-600 after:pl-1"
-              >
-                Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                required
-                value={name}
-                onChange={(event) => setName(event.target.value)}
-                // disabled
-                className="w-[75%] min-h-[2rem]"
-              />
-            </div>
-            <div className="pb-4 w-full flex items-center justify-center">
-              <label
-                htmlFor="email"
-                className="pr-4 w-[20%] after:content-['*'] after:text-red-600 after:pl-1"
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                required
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                // disabled
-                className="w-[75%] min-h-[2rem]"
-              />
-            </div>
-            <div className="pb-4 w-full flex items-center justify-center">
-              <label
-                htmlFor="message"
-                className="pr-4 w-[20%] after:content-['*'] after:text-red-600 after:pl-1"
-              >
-                Message
-              </label>
-              <textarea
-                name="message"
-                id="message"
-                rows="10"
-                required
-                value={message}
-                onChange={(event) => setMessage(event.target.value)}
-                // disabled
-                className="w-[75%] min-h-[2rem]"
-              ></textarea>
-            </div>
-            <div>
-              <button
-                disabled
-                className="p-2 bg-white rounded-2xl text-black mb-4"
-              >
-                Send Message
-              </button>
-            </div>
-          </form>
-        </div>
-      </section>
-      <footer className="text-center">
+      <footer className="text-center border-t border-solid border-t-gray-400">
         <ul className="list-none inline-flex my-4 mx-8">
           <li>
             <a href="mailto:adithya2205@gmail.com" className="app-accent p-4">
