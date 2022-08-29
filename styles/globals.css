@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply text-base leading-relaxed scroll-smooth;
+    font-family: "Source Sans Pro", sans-serif;
+  }
+  h1 {
+    @apply text-[2.75rem] leading-relaxed font-bold;
+  }
+  h2 {
+    @apply text-3xl leading-relaxed font-bold;
+  }
+  h3 {
+    @apply text-2xl leading-relaxed font-bold;
+  }
+  h4 {
+    @apply text-xl leading-relaxed font-bold;
+  }
+  a {
+    @apply text-inherit no-underline;
+  }
+}
+@layer components {
+  .app-accent {
+    color: #ff9400;
+  }
+  .bg-accent {
+    background: #ff9400;
+  }
+  .text-primary {
+    color: #706a6a;
+  }
+  .bg-primary {
+    background: #706a6a;
+  }
+  .color-primary {
+    background: #ffffff;
+    color: #706a6a;
+  }
+  .color-secondary {
+    background: #706a6a;
+    color: #ffffff;
+  }
+  .text-gray {
+    color: #d5d5d5;
+  }
+  .bg-gray {
+    background: #d5d5d5;
+  }
+}
