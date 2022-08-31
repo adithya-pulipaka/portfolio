@@ -1,9 +1,15 @@
 import React from "react";
+import Footer from "./Footer";
+import Header from "./Header";
 
 const Layout = ({ children }) => {
   return (
     <>
-      <main className="mx-8">{children}</main>
+      <div className="mx-auto">
+        <Header></Header>
+        <main className="mx-8">{children}</main>
+        <Footer></Footer>
+      </div>
     </>
   );
 };

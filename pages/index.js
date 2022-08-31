@@ -2,6 +2,7 @@ import Head from "next/head";
 import { POSTS_DIR } from "../utils/constants";
 import Link from "next/link";
 import { getPostsInfo } from "../helpers/page_fns";
+import AboutMe from "../components/aboutme/AboutMe";
 
 export default function Home({ postsInfo }) {
   console.log(postsInfo);
@@ -13,14 +14,16 @@ export default function Home({ postsInfo }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h2 className="underline px-4">All Posts</h2>
+      <AboutMe></AboutMe>
+
+      {/* <h2 className="underline px-4">All Posts</h2>
 
       <div>
         {postsInfo && postsInfo.length > 0 ? (
           postsInfo.map((post) => {
             return (
               <div key={post.slug} className="mb-8">
-                <h3 className="hover:app-accent hover:underline mt-2 mb-2 px-4">
+                <h3 className="hover:text-accent hover:underline mt-2 mb-2 px-4">
                   <Link href={`posts/${encodeURIComponent(post.slug)}`}>
                     {post.title}
                   </Link>
@@ -33,9 +36,9 @@ export default function Home({ postsInfo }) {
             );
           })
         ) : (
-          <div className="text-center text-xl app-accent">No Posts!</div>
+          <div className="text-center text-xl text-accent">No Posts!</div>
         )}
-      </div>
+      </div> */}
     </>
   );
 }
