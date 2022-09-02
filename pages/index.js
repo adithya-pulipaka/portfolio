@@ -2,7 +2,7 @@ import Head from "next/head";
 import { POSTS_DIR } from "../utils/constants";
 import Link from "next/link";
 import { getPostsInfo } from "../helpers/page_fns";
-import AboutMe from "../components/aboutme/AboutMe";
+import Portfolio from "../components/portfolio/Portfolio";
 
 export default function Home({ postsInfo }) {
   console.log(postsInfo);
@@ -14,7 +14,7 @@ export default function Home({ postsInfo }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <AboutMe></AboutMe>
+      <Portfolio></Portfolio>
 
       {/* <h2 className="underline px-4">All Posts</h2>
 

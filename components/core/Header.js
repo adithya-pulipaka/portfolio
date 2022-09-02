@@ -14,10 +14,10 @@ const Header = () => {
               <Link href={"#me"}>About Me</Link>
             </li>
             <li className="p-2 mx-2 rounded-2xl hover:bg-slate-500 hover:text-white">
-              <Link href={"/blog"}>Blog</Link>
+              <Link href={"#projects"}>Projects</Link>
             </li>
             <li className="p-2 mx-2 rounded-2xl hover:bg-slate-500 hover:text-white">
-              <Link href={"#projects"}>Projects</Link>
+              <Link href={"#footer"}>Contact Me</Link>
             </li>
           </ul>
         </div>
