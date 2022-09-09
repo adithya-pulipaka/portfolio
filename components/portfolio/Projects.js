@@ -8,6 +8,14 @@ const projects = [
     live: `https://todo.adithyakashyap.com`,
     reference: `https://github.com/adithya-pulipaka/todo-app`,
   },
+  // {
+  //   name: "Budget Tracker",
+  //   description: `A typical Budget Tracking applicaton where we define a budget with categories to start with and
+  //      track the transactions made over time. Built with Next.JS Framework (React), Tailwind for styling and
+  //      firestore to persist the data`,
+  //   live: `https://budget.adithyakashyap.com`,
+  //   reference: `https://github.com/adithya-pulipaka/budget-tracker`,
+  // },
 ];
 
 const Projects = () => {
@@ -21,30 +29,31 @@ const Projects = () => {
         <div className="flex flex-wrap justify-center items-center">
           {projects.map((project) => {
             return (
-              <>
-                <div className="grow shrink-0 basis-[350px] bg-slate-200 text-black m-8 flex flex-col items-center p-4 max-w-[500px]">
-                  <h3 className="mt-0 pt-0">{project.name}</h3>
-                  <p className="my-4">{project.description}</p>
-                  <div className="flex flex-col justify-center md:flex-row mt-auto">
-                    <Link href={project.live}>
-                      <a
-                        target={"_blank"}
-                        className="text-sm p-3 font-bold bg-accent my-1 rounded-[15px] mr-4 text-white"
-                      >
-                        Live
-                      </a>
-                    </Link>
-                    <Link href={project.reference}>
-                      <a
-                        target={"_blank"}
-                        className="text-sm p-3 font-bold bg-accent my-1 rounded-[15px] mr-4 text-white"
-                      >
-                        Source
-                      </a>
-                    </Link>
-                  </div>
+              <div
+                key={project.reference}
+                className="grow shrink-0 basis-[350px] bg-slate-200 text-black m-8 flex flex-col items-center p-4 max-w-[500px]"
+              >
+                <h3 className="mt-0 pt-0">{project.name}</h3>
+                <p className="my-4">{project.description}</p>
+                <div className="flex flex-col justify-center md:flex-row mt-auto">
+                  <Link href={project.live}>
+                    <a
+                      target={"_blank"}
+                      className="text-sm p-3 font-bold bg-accent my-1 rounded-[15px] mr-4 text-white"
+                    >
+                      Live
+                    </a>
+                  </Link>
+                  <Link href={project.reference}>
+                    <a
+                      target={"_blank"}
+                      className="text-sm p-3 font-bold bg-accent my-1 rounded-[15px] mr-4 text-white"
+                    >
+                      Source
+                    </a>
+                  </Link>
                 </div>
-              </>
+              </div>
             );
           })}
         </div>
