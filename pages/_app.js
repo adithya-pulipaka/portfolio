@@ -1,8 +1,6 @@
-import Layout from "../components/core/Layout";
 import "../styles/globals.css";
-// import { config } from "@fortawesome/fontawesome-svg-core";
-import "@fortawesome/fontawesome-svg-core/styles.css";
-// config.autoAddCss = false;
+import "@fortawesome/fontawesome-svg-core/styles.css"; //Need this for icons to work properly
+import Layout from "../components/core/Layout";
 
 function MyApp({ Component, pageProps }) {
   return (

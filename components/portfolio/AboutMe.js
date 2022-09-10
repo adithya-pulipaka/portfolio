@@ -2,9 +2,14 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngular,
+  faCss3,
+  faDocker,
+  faHtml5,
   faJava,
   faJenkins,
   faJs,
+  faNodeJs,
+  faPython,
   faReact,
 } from "@fortawesome/free-brands-svg-icons";
 
@@ -17,12 +22,13 @@ const AboutMe = () => {
           <span className="after:border-solid after:border-black after:border after:block after:w-20 after:mx-auto"></span>
         </h2>
         <div className="md:flex md:justify-evenly md:items-start md:gap-8">
-          <div className="md:basis-96 md:text-justify md:mt-7">
-            Hey there again! My name is Adithya Kashyap Pulipaka and I am
+          <div className="md:basis-[450px] md:text-center md:mt-7 md:text-lg md:leading-8">
+            Hi, I'm Adithya Kashyap based out of Washington DC Metro area. I am
             currently working as a Full Stack Developer for Morgan Stanley. My
-            Professional experience includes developing web applications and
-            API's using languages like Java, JavaScript and Python. In my free
-            time, I like to hangout with my friends and watch TV shows.
+            background includes developing software applications that solve a
+            wide variety of complex organizational problems using languages like
+            Java, JavaScript and Python. In my free time, I like to hangout with
+            my friends and watch TV shows.
           </div>
           <div className="sm:hidden md:block self-stretch mr-[55px]">
             <span className="after:border-solid after:border-gray-300 after:border after:w-0 after:h-full after:block"></span>
@@ -33,15 +39,27 @@ const AboutMe = () => {
               <span className="after:border-solid after:border-black after:border after:block after:w-20 after:mx-auto"></span>
             </h4>
             <div className="flex items-center justify-center gap-4 flex-wrap">
-              <div className="basis-[100px] grow shrink flex flex-col">
+              <div className="basis-[75px] grow shrink flex flex-col">
                 <FontAwesomeIcon icon={faJava} size="2x" />
                 <p className="m-4"> Java</p>
               </div>
-              <div className="basis-[100px] grow shrink flex flex-col">
+              <div className="basis-[75px] grow shrink flex flex-col">
                 <FontAwesomeIcon icon={faJs} size="2x" />
                 <p className="m-4"> JavaScript</p>
               </div>
-              <div className="basis-[100px] grow shrink flex flex-col">
+              <div className="basis-[75px] grow shrink flex flex-col">
+                <FontAwesomeIcon icon={faPython} size="2x" />
+                <p className="m-4"> Python</p>
+              </div>
+              <div className="basis-[75px] grow shrink flex flex-col">
+                <FontAwesomeIcon icon={faHtml5} size="2x" />
+                <p className="m-4"> HTML </p>
+              </div>
+              <div className="basis-[75px] grow shrink flex flex-col">
+                <FontAwesomeIcon icon={faCss3} size="2x" />
+                <p className="m-4"> CSS </p>
+              </div>
+              <div className="basis-[75px] grow shrink flex flex-col">
                 <img
                   src={"/images/spring-icon.png"}
                   alt=""
@@ -49,17 +67,25 @@ const AboutMe = () => {
                 />
                 <p className="m-4"> Spring </p>
               </div>
-              <div className="basis-[100px] grow shrink flex flex-col">
+              <div className="basis-[75px] grow shrink flex flex-col">
                 <FontAwesomeIcon icon={faAngular} size="2x" />
                 <p className="m-4"> Angular </p>
               </div>
-              <div className="basis-[100px] grow shrink flex flex-col">
+              <div className="basis-[75px] grow shrink flex flex-col">
                 <FontAwesomeIcon icon={faReact} size="2x" />
                 <p className="m-4"> React </p>
               </div>
-              <div className="basis-[100px] grow shrink flex flex-col">
+              <div className="basis-[75px] grow shrink flex flex-col">
+                <FontAwesomeIcon icon={faNodeJs} size="2x" />
+                <p className="m-4"> Node JS </p>
+              </div>
+              <div className="basis-[75px] grow shrink flex flex-col">
                 <FontAwesomeIcon icon={faJenkins} size="2x" />
                 <p className="m-4"> Jenkins </p>
+              </div>
+              <div className="basis-[75px] grow shrink flex flex-col">
+                <FontAwesomeIcon icon={faDocker} size="2x" />
+                <p className="m-4"> Docker </p>
               </div>
             </div>
           </div>
