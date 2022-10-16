@@ -5,29 +5,34 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
 
   const sendMessage = (e) => {
     e.preventDefault();
-    const msg = {
-      to: `adithya2205@gmail.com`,
-      from: `adithya2205@gmail.com`,
-      subject: `Portfolio: Message from ${name}`,
-      text: `Message from ${email}: ${message}`,
-    };
-    axios.post("/api/contact", msg).then((response) => {
-      alert("Thanks for contacting me and I will get back to you shortly");
-    });
+    if (name && email && message) {
+      const msg = {
+        subject: `Portfolio: Message from ${name}`,
+        text: `Message from ${email}: ${message}`,
+      };
+      axios.post("/api/contact", msg).then((response) => {
+        alert("Thanks for contacting me and I will get back to you shortly");
+      });
+      setError("");
+    } else {
+      setError(`All Fields are Required`);
+    }
   };
 
   return (
     <>
-      <section className="bg-slate-200 -mx-8 text-center pt-4">
-        <h2 className="app-accent mt-0 text-3xl mb-7">
+      <section className="bg-slate-200 -mx-8 text-center pt-4" id="contact">
+        <h2 className="text-primary hover:text-accent mt-0 text-3xl mb-7">
           Contact Me
           <span className="after:border-solid after:border-black after:border after:block after:w-20 after:mx-auto"></span>
         </h2>
         <div className="contact__form">
           <form>
+            {error && <p className="text-red-600 font-bold py-2">{error}</p>}
             <div className="pb-4 w-full md:max-w-md md:mx-auto flex items-center justify-center">
               <label
                 htmlFor="name"
@@ -42,7 +47,7 @@ const Contact = () => {
                 required
                 value={name}
                 onChange={(event) => setName(event.target.value)}
-                className="w-[75%] min-h-[2rem]"
+                className="w-[75%] min-h-[2rem] rounded-lg"
               />
             </div>
             <div className="pb-4 w-full md:max-w-md md:mx-auto flex items-center justify-center">
@@ -59,7 +64,7 @@ const Contact = () => {
                 required
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
-                className="w-[75%] min-h-[2rem]"
+                className="w-[75%] min-h-[2rem] rounded-lg"
               />
             </div>
             <div className="pb-4 w-full md:max-w-md md:mx-auto flex items-center justify-center">
@@ -76,12 +81,12 @@ const Contact = () => {
                 required
                 value={message}
                 onChange={(event) => setMessage(event.target.value)}
-                className="w-[75%] min-h-[2rem]"
+                className="w-[75%] min-h-[2rem] rounded-lg"
               ></textarea>
             </div>
             <div>
               <button
-                className="p-2 bg-white rounded-2xl text-black mb-4"
+                className="p-2 bg-black rounded-2xl text-white mb-4"
                 onClick={sendMessage}
               >
                 Send Message

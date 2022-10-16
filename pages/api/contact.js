@@ -3,7 +3,12 @@ import * as sgMail from "@sendgrid/mail";
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 export default function handler(req, res) {
-  const msg = req.body;
+  const data = req.body;
+  const msg = {
+    ...data,
+    to: `adithya2205@gmail.com`,
+    from: `adithya2205@gmail.com`,
+  };
   sgMail
     .send(msg)
     .then(() => {

@@ -3,19 +3,25 @@ import Link from "next/link";
 
 const projects = [
   {
+    name: "Online Store App",
+    description: `An e-commerce application that allows to look through the products, add/remove from cart and a checkout process to complete the order. Built using React, Material-UI and React Context.`,
+    live: `https://todo.adithyakashyap.com`,
+    reference: `https://github.com/adithya-pulipaka/todo-app`,
+  },
+  {
     name: "A Simple Todo App",
     description: `A 'Hello World' step of building a website! This is a simple todo app built using Next.JS Framework and Tailwind CSS for styling.`,
     live: `https://todo.adithyakashyap.com`,
     reference: `https://github.com/adithya-pulipaka/todo-app`,
   },
-  // {
-  //   name: "Budget Tracker",
-  //   description: `A typical Budget Tracking applicaton where we define a budget with categories to start with and
-  //      track the transactions made over time. Built with Next.JS Framework (React), Tailwind for styling and
-  //      firestore to persist the data`,
-  //   live: `https://budget.adithyakashyap.com`,
-  //   reference: `https://github.com/adithya-pulipaka/budget-tracker`,
-  // },
+  {
+    name: "Budget Tracker",
+    description: `A typical Budget Tracking applicaton where we define a budget with categories to start with and
+       track the transactions made over time. Built with Next.JS Framework (React), Tailwind for styling and
+       firestore to persist the data`,
+    live: `https://budget.adithyakashyap.com`,
+    reference: `https://github.com/adithya-pulipaka/budget-tracker`,
+  },
 ];
 
 const Projects = () => {
@@ -26,7 +32,7 @@ const Projects = () => {
           Personal Projects
           <span className="after:border-solid after:border-black after:border after:block after:w-20 after:mx-auto"></span>
         </h2>
-        <div className="flex flex-wrap justify-center items-center">
+        <div className="flex flex-wrap justify-center">
           {projects.map((project) => {
             return (
               <div
@@ -39,7 +45,7 @@ const Projects = () => {
                   <Link href={project.live}>
                     <a
                       target={"_blank"}
-                      className="text-sm p-3 font-bold bg-accent my-1 rounded-[15px] mr-4 text-white"
+                      className="text-sm p-3 font-bold bg-white my-1 rounded-[15px] mr-4 hover:bg-accent"
                     >
                       Live
                     </a>
@@ -47,7 +53,7 @@ const Projects = () => {
                   <Link href={project.reference}>
                     <a
                       target={"_blank"}
-                      className="text-sm p-3 font-bold bg-accent my-1 rounded-[15px] mr-4 text-white"
+                      className="text-sm p-3 font-bold bg-white my-1 rounded-[15px] mr-4 hover:bg-accent"
                     >
                       Source
                     </a>
