@@ -16,11 +16,14 @@ const Header = () => {
             <li className="p-2 mx-2 rounded-2xl hover:bg-slate-500 hover:text-white hover:cursor-pointer">
               <Link href={"#me"}>About Me</Link>
             </li>
-            <li className="p-2 mx-2 rounded-2xl hover:bg-slate-500 hover:text-white">
+            {/* <li className="p-2 mx-2 rounded-2xl hover:bg-slate-500 hover:text-white">
               <Link href={"#projects"}>Projects</Link>
+            </li> */}
+            <li className="p-2 mx-2 rounded-2xl hover:bg-slate-500 hover:text-white">
+              <Link href={"#experience"}>Experience</Link>
             </li>
             <li className="p-2 mx-2 rounded-2xl hover:bg-slate-500 hover:text-white">
-              <Link href={"#footer"}>Contact Me</Link>
+              <Link href={"#contact"}>Contact Me</Link>
             </li>
           </ul>
         </div>
@@ -38,18 +41,29 @@ const Header = () => {
                 icon={faXmark}
                 size="2x"
                 onClick={() => setIsMenuOpen(false)}
-                className="relative"
+                className="fixed top-3 right-9"
               />
               <div className="fixed top-12 right-8 bg-slate-400">
                 <ul className="text-white text-xl">
                   <li className="p-2 mx-2">
-                    <Link href={"#me"}>About Me</Link>
+                    <Link href={"#me"}>
+                      <a onClick={() => setIsMenuOpen(false)}>About Me</a>
+                    </Link>
+                  </li>
+                  {/* <li className="p-2 mx-2">
+                    <Link href={"#projects"}>
+                      <a onClick={() => setIsMenuOpen(false)}>Projects</a>
+                    </Link>
+                  </li> */}
+                  <li className="p-2 mx-2">
+                    <Link href={"#experience"}>
+                      <a onClick={() => setIsMenuOpen(false)}>Experience</a>
+                    </Link>
                   </li>
                   <li className="p-2 mx-2">
-                    <Link href={"#projects"}>Projects</Link>
-                  </li>
-                  <li className="p-2 mx-2">
-                    <Link href={"#footer"}>Contact Me</Link>
+                    <Link href={"#contact"}>
+                      <a onClick={() => setIsMenuOpen(false)}>Contact me</a>
+                    </Link>
                   </li>
                 </ul>
               </div>
