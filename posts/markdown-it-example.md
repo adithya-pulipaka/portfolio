@@ -10,7 +10,7 @@ tags:
   - next.js
 created: 08-27-2022
 last_modified: 08-27-2022
-published: false
+published: true
 ---
 
 # h1 Heading 8-)
@@ -207,8 +207,6 @@ with lazy continuation.
 Term 2 with _inline markup_
 
 : Definition 2
-
-        { some code, part of Definition 2 }
 
     Third paragraph of definition 2.
 
