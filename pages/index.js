@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Portfolio from "../components/portfolio/Portfolio";
 
-export default function Home() {
+export default function Home({ postsInfo }) {
   return (
     <>
       <Head>

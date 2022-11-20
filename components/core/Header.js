@@ -1,10 +1,21 @@
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useAppContext } from "../../hooks/useAppContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const appContext = useAppContext();
+  const { appInfo, setAppInfo } = appContext.currentState;
+
+  useEffect(() => {
+    const isBlog = window.location.href.includes("blog");
+    if (isBlog !== appInfo.isBlog) {
+      setAppInfo({ isBlog });
+    }
+  });
+
   return (
     <>
       <nav className="flex p-4 px-6 justify-center items-center">
@@ -13,18 +24,25 @@ const Header = () => {
         </div>
         <div className="ml-auto mr-4 hidden md:block">
           <ul className="flex text-accent">
-            <li className="p-2 mx-2 rounded-2xl hover:bg-slate-500 hover:text-white hover:cursor-pointer">
-              <Link href={"#me"}>About Me</Link>
-            </li>
-            {/* <li className="p-2 mx-2 rounded-2xl hover:bg-slate-500 hover:text-white">
+            {!appInfo.isBlog && (
+              <>
+                <li className="p-2 mx-2 rounded-2xl hover:bg-slate-500 hover:text-white hover:cursor-pointer">
+                  <Link href={"#me"}>About Me</Link>
+                </li>
+                {/* <li className="p-2 mx-2 rounded-2xl hover:bg-slate-500 hover:text-white">
               <Link href={"#projects"}>Projects</Link>
             </li> */}
-            <li className="p-2 mx-2 rounded-2xl hover:bg-slate-500 hover:text-white">
-              <Link href={"#experience"}>Experience</Link>
-            </li>
-            <li className="p-2 mx-2 rounded-2xl hover:bg-slate-500 hover:text-white">
-              <Link href={"#contact"}>Contact Me</Link>
-            </li>
+                <li className="p-2 mx-2 rounded-2xl hover:bg-slate-500 hover:text-white">
+                  <Link href={"#experience"}>Experience</Link>
+                </li>
+                <li className="p-2 mx-2 rounded-2xl hover:bg-slate-500 hover:text-white">
+                  <Link href={"#contact"}>Contact Me</Link>
+                </li>
+                <li className="p-2 mx-2 rounded-2xl hover:bg-slate-500 hover:text-white">
+                  <Link href={"/blog"}>Blog</Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
         <div className="ml-auto mr-4 md:hidden">
