@@ -13,7 +13,7 @@ const PostDetailsPage = ({ content, frontMatter }) => {
 export default PostDetailsPage;
 
 export async function getStaticPaths() {
-  const postsInfo = await getPostsInfo();
+  const { postsInfo } = await getPostsInfo();
   const paths = postsInfo.map((post) => ({
     params: {
       slug: post.frontmatter.slug,

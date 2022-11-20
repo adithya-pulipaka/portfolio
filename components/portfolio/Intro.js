@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Intro = () => {
   return (
     <>
-      <section className="md:h-[50vh] pb-8 mt-9 text-center md:flex md:justify-evenly md:items-center">
+      <section className="md:h-[50vh] pb-8 text-center md:flex md:justify-evenly md:items-center">
         <div>
           <h1 className="-mb-4">Hi, I'm Adithya</h1>
           <h3 className=" text-accent my-5 mb-3">Full Stack Developer</h3>

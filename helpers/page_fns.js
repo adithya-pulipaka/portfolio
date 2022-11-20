@@ -12,7 +12,11 @@ export async function getPostsInfo() {
       new Date(second.last_modified).getTime() -
       new Date(first.last_modified).getTime()
   );
-  return postsInfo;
+  const tags = postsInfo.map((a) => a.frontmatter).flatMap((a) => a.tags);
+  return {
+    postsInfo,
+    tags: [...new Set(tags)],
+  };
 }
 
 export async function getPostDetails(slug) {

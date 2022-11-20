@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
     <>
       <div className="mx-auto">
         <Header></Header>
-        <main className="mx-8 min-h-[80vh]">{children}</main>
+        <main className="mx-8 min-h-[80vh] mt-9">{children}</main>
         <Footer></Footer>
       </div>
     </>

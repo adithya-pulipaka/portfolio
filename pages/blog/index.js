@@ -1,15 +1,48 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { getPostsInfo } from "../../helpers/page_fns";
 import Link from "next/link";
+import Tag from "../../components/posts/Tag";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDownload, faXmark } from "@fortawesome/free-solid-svg-icons";
 
-const Blog = ({ postsInfo }) => {
+const Blog = ({ postsInfo, tags }) => {
+  const [filteredPosts, setFilteredPosts] = useState(null);
+  const [selectedTag, setSelectedTag] = useState(null);
+
+  useEffect(() => {
+    if (selectedTag && postsInfo) {
+      const postsByTag = postsInfo
+        .map((a) => a.frontmatter)
+        .filter((post) => post.tags.includes(selectedTag));
+      setFilteredPosts(postsByTag);
+    } else {
+      setFilteredPosts(postsInfo.map((a) => a.frontmatter));
+    }
+  }, [selectedTag]);
+
+  const filterByTag = (tag) => {
+    setSelectedTag(tag);
+  };
+
+  const clearTag = () => {
+    setSelectedTag(null);
+  };
+
   return (
     <>
-      <div>
-        {postsInfo && postsInfo.length > 0 ? (
-          postsInfo
-            .map((a) => a.frontmatter)
-            .map((post) => {
+      <div className="md:flex md:gap-12 md:max-w-5xl mx-auto">
+        <section className="w-[70%]">
+          <h1 className="underline mb-4">Posts</h1>
+          {selectedTag && (
+            <button
+              className="bg-slate-200 px-3 py-1 rounded-xl"
+              onClick={clearTag}
+            >
+              #{selectedTag} <FontAwesomeIcon icon={faXmark} />
+            </button>
+          )}
+          {filteredPosts && filteredPosts.length > 0 ? (
+            filteredPosts.map((post) => {
               return (
                 <div key={post.slug} className="mb-8">
                   <h3 className="hover:app-accent hover:underline mt-2 mb-2 px-4">
@@ -24,9 +57,22 @@ const Blog = ({ postsInfo }) => {
                 </div>
               );
             })
-        ) : (
-          <div className="text-center text-xl app-accent">No Posts!</div>
-        )}
+          ) : (
+            <div className="text-center text-xl app-accent">No Posts!</div>
+          )}
+        </section>
+        <section className="w-[30%]">
+          <h1 className="underline mb-4">Tags</h1>
+          <div className="bg-slate-400 p-2 rounded-md">
+            {tags.map((name) => {
+              return (
+                <Tag onClick={() => filterByTag(name)} key={name}>
+                  {name}
+                </Tag>
+              );
+            })}
+          </div>
+        </section>
       </div>
     </>
   );
@@ -35,11 +81,11 @@ const Blog = ({ postsInfo }) => {
 export default Blog;
 
 export async function getStaticProps(context) {
-  const postsInfo = await getPostsInfo();
-
+  const { postsInfo, tags } = await getPostsInfo();
   return {
     props: {
       postsInfo,
+      tags,
     },
   };
 }

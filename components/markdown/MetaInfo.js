@@ -8,7 +8,7 @@ const MetaInfo = ({ data }) => {
           <span className="font-bold pr-0"></span> {data.author}
         </p>
         <p>
-          {data.posted} / <span className="font-bold">{data.readingTime}</span>
+          {data.posted} || <span className="font-bold">{data.readingTime}</span>
         </p>
       </div>
     </>
