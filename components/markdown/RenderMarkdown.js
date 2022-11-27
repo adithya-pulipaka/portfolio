@@ -6,7 +6,7 @@ const components = { MetaInfo };
 
 const RenderMarkdown = ({ content, scope }) => {
   return (
-    <div className="prose mt-8 max-w-fit">
+    <div className="prose mt-8 max-w-fit mx-auto">
       <MDXRemote {...content} components={components} scope={scope} />
     </div>
   );

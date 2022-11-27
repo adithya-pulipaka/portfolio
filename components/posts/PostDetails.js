@@ -1,21 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import RenderMarkdown from "../markdown/RenderMarkdown";
 import { format, parse } from "date-fns";
 import readingTime from "reading-time";
+import { useBlogContext } from "../../hooks/useBlogContext";
 
 const PostDetails = ({ content, frontMatter }) => {
-  const scopeInfo = {
-    author: frontMatter.author,
-    posted: format(
-      parse(frontMatter.created, "MM-dd-yyyy", new Date()),
-      "MMM do, yyyy"
-    ),
-    readingTime: readingTime(content.compiledSource).text,
-  };
+  const blogContext = useBlogContext();
+  const { metadata, setMetadata } = blogContext.currentState;
+
+  useEffect(() => {
+    const currVal = {
+      frontMatter,
+      readingTime: readingTime(content.compiledSource).text,
+    };
+    if (!Object.keys(metadata).includes(frontMatter.slug)) {
+      setMetadata({
+        ...metadata,
+        [frontMatter.slug]: currVal,
+        current: currVal,
+      });
+    } else {
+      setMetadata({ ...metadata, current: currVal });
+    }
+  }, [frontMatter.slug]);
   return (
-    <section className="max-w-4xl mx-auto">
+    <section className="max-w-5xl mx-auto">
       <article className="">
-        <RenderMarkdown content={content} scope={scopeInfo}></RenderMarkdown>
+        <RenderMarkdown content={content}></RenderMarkdown>
       </article>
     </section>
   );

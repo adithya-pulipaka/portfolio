@@ -32,7 +32,7 @@ const Blog = ({ postsInfo, tags }) => {
     <>
       <div className="md:flex md:gap-12 md:max-w-5xl mx-auto">
         <section className="w-[70%]">
-          <h1 className="underline mb-4">Posts</h1>
+          <h1 className="underline mb-4 -mt-2">Posts</h1>
           {selectedTag && (
             <button
               className="bg-slate-200 px-3 py-1 rounded-xl"
