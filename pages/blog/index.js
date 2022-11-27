@@ -4,6 +4,8 @@ import Link from "next/link";
 import Tag from "../../components/posts/Tag";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { NextSeo } from "next-seo";
+import Head from "next/head";
 
 const Blog = ({ postsInfo, tags }) => {
   const [filteredPosts, setFilteredPosts] = useState(null);
@@ -30,6 +32,14 @@ const Blog = ({ postsInfo, tags }) => {
 
   return (
     <>
+      <NextSeo
+        title="Adithya Kashyap's Blog"
+        canonical="https://adithyakashyap.com/blog"
+        openGraph={{
+          url: "https://adithyakashyap.com/blog",
+          title: "Adithya Kashyap's Blog",
+        }}
+      />
       <div className="md:flex md:gap-12 md:max-w-5xl mx-auto">
         <section className="w-[70%]">
           <h1 className="underline mb-4 -mt-2">Posts</h1>
