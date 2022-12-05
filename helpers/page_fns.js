@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { POSTS_DIR } from "../utils/constants";
 import { serialize } from "next-mdx-remote/serialize";
+import remarkGemoji from "remark-gemoji";
 
 export async function getPostsInfo() {
   const fileInfos = await getFileInfo();
@@ -32,7 +33,10 @@ export async function getFileInfo() {
   let postsInfo = [];
   for (const file of files) {
     const fileContent = fs.readFileSync(path.join(POSTS_DIR, file));
-    const data = await serialize(fileContent, { parseFrontmatter: true });
+    const data = await serialize(fileContent, {
+      parseFrontmatter: true,
+      mdxOptions: { remarkPlugins: [remarkGemoji] },
+    });
     postsInfo.push(data);
   }
   return postsInfo;
