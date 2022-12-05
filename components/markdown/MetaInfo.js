@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useBlogContext } from "../../hooks/useBlogContext";
 import { format, parse } from "date-fns";
 import Tag from "../posts/Tag";
+import { useRouter } from "next/router";
 
 const MetaInfo = () => {
   const blogContext = useBlogContext();
   const { metadata } = blogContext.currentState;
+  const router = useRouter();
 
   let data;
   if (metadata.current) {
@@ -34,9 +36,16 @@ const MetaInfo = () => {
               <span className="font-bold">{data.readingTime}</span>
             </p>
           </div>
-          <div className="text-xs">
+          <div className="text-xs flex gap-2">
             {data.tags.map((name) => {
-              return <Tag key={name}>{name}</Tag>;
+              return (
+                <Tag
+                  key={name}
+                  onClick={() => router.push(`/blog?tag=${name}`)}
+                >
+                  {name}
+                </Tag>
+              );
             })}
           </div>{" "}
         </>

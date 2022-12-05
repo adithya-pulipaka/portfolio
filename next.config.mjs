@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 import mdx from "@next/mdx";
 
+//This is when using mdx files as pages. keeping this for now.
 const withMDX = mdx({
   extension: /\.mdx?$/,
   options: {

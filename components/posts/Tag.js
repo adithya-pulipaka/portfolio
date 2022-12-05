@@ -4,7 +4,7 @@ const Tag = ({ children, onClick }) => {
   return (
     <button
       onClick={(e) => onClick(e)}
-      className="bg-slate-200 p-2 m-2 rounded-2xl hover:bg-slate-500 hover:text-white"
+      className="bg-slate-200 py-1 px-2 rounded-lg hover:bg-slate-500 hover:text-white"
     >
       #{children}
     </button>
