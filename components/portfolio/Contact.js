@@ -25,7 +25,7 @@ const Contact = () => {
 
   return (
     <>
-      <section className="bg-slate-200 -mx-8 text-center pt-4" id="contact">
+      <section className="bg-white -mx-8 text-center pt-4" id="contact">
         <h2 className="text-primary hover:text-accent mt-0 text-3xl mb-7">
           Contact Me
           <span className="after:border-solid after:border-black after:border after:block after:w-20 after:mx-auto"></span>
@@ -47,7 +47,7 @@ const Contact = () => {
                 required
                 value={name}
                 onChange={(event) => setName(event.target.value)}
-                className="w-[75%] min-h-[2rem] rounded-lg"
+                className="w-[75%] min-h-[2rem] rounded-lg bg-slate-200 pl-1"
               />
             </div>
             <div className="pb-4 w-full md:max-w-md md:mx-auto flex items-center justify-center">
@@ -64,7 +64,7 @@ const Contact = () => {
                 required
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
-                className="w-[75%] min-h-[2rem] rounded-lg"
+                className="w-[75%] min-h-[2rem] rounded-lg bg-slate-200 pl-1"
               />
             </div>
             <div className="pb-4 w-full md:max-w-md md:mx-auto flex items-center justify-center">
@@ -81,7 +81,7 @@ const Contact = () => {
                 required
                 value={message}
                 onChange={(event) => setMessage(event.target.value)}
-                className="w-[75%] min-h-[2rem] rounded-lg"
+                className="w-[75%] min-h-[2rem] rounded-lg bg-slate-200 pl-2"
               ></textarea>
             </div>
             <div>

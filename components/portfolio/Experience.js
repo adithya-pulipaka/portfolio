@@ -9,7 +9,8 @@ import {
 const Experience = () => {
   return (
     <>
-      <section className="-mx-8 text-center p-8 mb-4" id="experience">
+      <section className="-mx-8 text-center p-8  bg-slate-200" id="experience">
+        {/* bg-slate-200 for alternate colors + mb-4 on the section above */}
         <h2 className="mt-0 text-primary hover:text-accent ">
           Professional Experience
           <span className="after:border-solid after:border-black after:border after:block after:w-20 after:mx-auto"></span>
@@ -29,7 +30,8 @@ const Experience = () => {
                   Sep 2022 - Present
                 </span>
               </div>
-              <div className="w-full md:w-[45%] bg-slate-200 p-4 mt-8 rounded-xl border-t-black border-t-2 relative">
+              <div className="w-full md:w-[45%] bg-white p-4 mt-8 rounded-xl border-t-black border-t-2 relative">
+                {/* bg-slate-200 for alternate colors  */}
                 <span className="absolute -top-3 -right-3">
                   <FontAwesomeIcon icon={faBriefcase} size="2x" />
                 </span>
@@ -56,7 +58,7 @@ const Experience = () => {
                   Jan 2021 - Sep 2022
                 </span>
               </div>
-              <div className="w-full md:w-[45%] bg-slate-200 p-4 mt-8 rounded-xl relative md:ml-auto border-t-black border-t-2">
+              <div className="w-full md:w-[45%] bg-white p-4 mt-8 rounded-xl relative md:ml-auto border-t-black border-t-2">
                 <span className="absolute -top-3 -right-3">
                   <FontAwesomeIcon icon={faBriefcase} size="2x" />
                 </span>
@@ -84,7 +86,7 @@ const Experience = () => {
                   Nov 2014 - Dec 2020
                 </span>
               </div>
-              <div className="w-full md:w-[45%] bg-slate-200 p-4 mt-8 rounded-xl relative border-t-black border-t-2">
+              <div className="w-full md:w-[45%] bg-white p-4 mt-8 rounded-xl relative border-t-black border-t-2">
                 <span className="absolute -top-3 -right-3">
                   <FontAwesomeIcon icon={faBriefcase} size="2x" />
                 </span>
@@ -104,7 +106,6 @@ const Experience = () => {
             </article>
           </div>
         </div>
-
         {/* <div className="relative">
           <div className="before:border before:border-solid before:border-slate-500 before:bg-slate-500 before:absolute before:w-2 before:h-full before:rounded-md">
             <article>

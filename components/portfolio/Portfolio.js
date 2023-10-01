@@ -10,7 +10,7 @@ const Portfolio = () => {
     <>
       <Intro></Intro>
       <AboutMe></AboutMe>
-      {/* <Projects></Projects> */}
+      <Projects></Projects>
       {/* <Blog></Blog> */}
       <Experience></Experience>
       {/* <Education></Education> */}
