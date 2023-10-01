@@ -33,7 +33,7 @@ export async function getFileInfo() {
   let postsInfo = [];
   for (const file of files) {
     const fileContent = fs.readFileSync(path.join(POSTS_DIR, file));
-    const data = await serialize(fileContent, {
+    const data = await serialize(fileContent.toString(), {
       parseFrontmatter: true,
       mdxOptions: { remarkPlugins: [remarkGemoji] },
     });
