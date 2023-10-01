@@ -2,26 +2,26 @@ import React from "react";
 import Link from "next/link";
 
 const projects = [
-  {
-    name: "Online Store App",
-    description: `An e-commerce application that allows to look through the products, add/remove from cart and a checkout process to complete the order. Built using React, Material-UI and React Context.`,
-    live: `https://todo.adithyakashyap.com`,
-    reference: `https://github.com/adithya-pulipaka/todo-app`,
-  },
+  // {
+  //   name: "Online Store App",
+  //   description: `An e-commerce application that allows to look through the products, add/remove from cart and a checkout process to complete the order. Built using React, Material-UI and React Context.`,
+  //   live: `https://todo.adithyakashyap.com`,
+  //   reference: `https://github.com/adithya-pulipaka/todo-app`,
+  // },
   {
     name: "A Simple Todo App",
     description: `A 'Hello World' step of building a website! This is a simple todo app built using Next.JS Framework and Tailwind CSS for styling.`,
-    live: `https://todo.adithyakashyap.com`,
+    live: `https://todo-app-ten-jet.vercel.app/`,
     reference: `https://github.com/adithya-pulipaka/todo-app`,
   },
-  {
-    name: "Budget Tracker",
-    description: `A typical Budget Tracking applicaton where we define a budget with categories to start with and
-       track the transactions made over time. Built with Next.JS Framework (React), Tailwind for styling and
-       firestore to persist the data`,
-    live: `https://budget.adithyakashyap.com`,
-    reference: `https://github.com/adithya-pulipaka/budget-tracker`,
-  },
+  // {
+  //   name: "Budget Tracker",
+  //   description: `A typical Budget Tracking applicaton where we define a budget with categories to start with and
+  //      track the transactions made over time. Built with Next.JS Framework (React), Tailwind for styling and
+  //      firestore to persist the data`,
+  //   live: `https://budget.adithyakashyap.com`,
+  //   reference: `https://github.com/adithya-pulipaka/budget-tracker`,
+  // },
 ];
 
 const Projects = () => {
