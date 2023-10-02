@@ -26,7 +26,7 @@ const PostDetails = ({ content, frontMatter }) => {
   return (
     <section className="max-w-5xl mx-auto">
       <article className="">
-        <RenderMarkdown content={content}></RenderMarkdown>
+        <RenderMarkdown content={content} scope={null}></RenderMarkdown>
       </article>
     </section>
   );

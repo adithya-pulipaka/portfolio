@@ -1,6 +1,8 @@
 import React, { createContext, useContext, useState } from "react";
 
-export const AppContext = createContext("");
+type AppContextType = any;
+
+export const AppContext = createContext<AppContextType | null>("");
 
 export const useAppContext = () => {
   return useContext(AppContext);

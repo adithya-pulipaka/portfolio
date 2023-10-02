@@ -77,7 +77,7 @@ const Contact = () => {
               <textarea
                 name="message"
                 id="message"
-                rows="5"
+                rows={5}
                 required
                 value={message}
                 onChange={(event) => setMessage(event.target.value)}
