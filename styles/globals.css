@@ -23,7 +23,7 @@
     @apply text-inherit no-underline;
   }
 }
-@layer components {
+@layer utilities {
   .text-primary {
     color: #706a6a;
   }
