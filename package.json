@@ -8,6 +8,9 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "engines": {
+    "node": ">=22.x"
+  },
   "dependencies": {
     "gray-matter": "^4.0.3",
     "mongodb": "^7.1.1",
