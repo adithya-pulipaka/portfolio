@@ -1,72 +1,109 @@
-import React from "react";
-import Link from "next/link";
+'use client'
 
-const projects = [
-  // {
-  //   name: "Online Store App",
-  //   description: `An e-commerce application that allows to look through the products, add/remove from cart and a checkout process to complete the order. Built using React, Material-UI and React Context.`,
-  //   live: `https://todo.adithyakashyap.com`,
-  //   reference: `https://github.com/adithya-pulipaka/todo-app`,
-  // },
-  {
-    name: "A Simple Todo App",
-    description: `A 'Hello World' step of building a website! This is a simple todo app built using Next.JS Framework and Tailwind CSS for styling.`,
-    live: `https://todo-app-ten-jet.vercel.app/`,
-    reference: `https://github.com/adithya-pulipaka/todo-app`,
-  },
-  // {
-  //   name: "Budget Tracker",
-  //   description: `A typical Budget Tracking applicaton where we define a budget with categories to start with and
-  //      track the transactions made over time. Built with Next.JS Framework (React), Tailwind for styling and
-  //      firestore to persist the data`,
-  //   live: `https://budget.adithyakashyap.com`,
-  //   reference: `https://github.com/adithya-pulipaka/budget-tracker`,
-  // },
-];
+import { projects } from '@/lib/data/projects'
+import { SectionHeading } from './About'
 
-const Projects = () => {
+export function Projects() {
   return (
-    <>
-      <section className="-mx-8 text-center p-8" id="projects">
-        <h2 className="mt-0 text-primary hover:text-accent ">
-          Personal Projects
-          <span className="after:border-solid after:border-black after:border after:block after:w-20 after:mx-auto"></span>
-        </h2>
-        <div className="flex flex-wrap justify-center">
-          {projects.map((project) => {
-            return (
-              <div
-                key={project.reference}
-                className="grow shrink-0 basis-[350px] bg-slate-200 text-black m-8 flex flex-col items-center p-4 max-w-[500px]"
-              >
-                <h3 className="mt-0 pt-0">{project.name}</h3>
-                <p className="my-4">{project.description}</p>
-                <div className="flex flex-col justify-center md:flex-row mt-auto">
-                  <Link href={project.live}>
-                    <a
-                      target={"_blank"}
-                      className="text-sm p-3 font-bold bg-white my-1 rounded-[15px] mr-4 hover:bg-accent"
-                    >
-                      Live
-                    </a>
-                  </Link>
-                  <Link href={project.reference}>
-                    <a
-                      target={"_blank"}
-                      className="text-sm p-3 font-bold bg-white my-1 rounded-[15px] mr-4 hover:bg-accent"
-                    >
-                      Source
-                    </a>
-                  </Link>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-        <div className="font-bold">... and more coming up!</div>
-      </section>
-    </>
-  );
-};
+    <section id="projects" className="py-24 px-6" style={{ background: 'var(--bg)' }}>
+      <div className="max-w-5xl mx-auto">
+        <SectionHeading>Projects</SectionHeading>
 
-export default Projects;
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {projects.map(project => (
+            <ProjectCard key={project.name} project={project} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function ProjectCard({ project }: { project: (typeof projects)[number] }) {
+  return (
+    <div
+      className="group flex flex-col justify-between rounded-xl p-5 transition-transform duration-200 hover:-translate-y-1"
+      style={{
+        background: 'var(--bg-card)',
+        border: '1px solid var(--border)',
+      }}
+    >
+      <div>
+        {/* Name + external link icon */}
+        <div className="flex items-start justify-between gap-2 mb-2">
+          <h3 className="font-semibold text-base" style={{ color: 'var(--fg)' }}>
+            {project.name}
+          </h3>
+          {project.demo && (
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${project.name} live demo`}
+              className="flex-shrink-0 transition-colors duration-200"
+              style={{ color: 'var(--fg-muted)' }}
+              onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = 'var(--accent)')}
+              onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = 'var(--fg-muted)')}
+            >
+              <ExternalLinkIcon />
+            </a>
+          )}
+        </div>
+
+        <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--fg-muted)' }}>
+          {project.description}
+        </p>
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-1.5 mb-4">
+          {project.tags.map(tag => (
+            <span
+              key={tag}
+              className="px-2 py-0.5 rounded text-xs"
+              style={{
+                background: 'oklch(0.585 0.233 277.1 / 0.12)',
+                color: 'var(--accent)',
+              }}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Links */}
+      {project.github && (
+        <a
+          href={project.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 text-xs font-medium transition-colors duration-200"
+          style={{ color: 'var(--fg-muted)' }}
+          onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = 'var(--fg)')}
+          onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = 'var(--fg-muted)')}
+        >
+          <GitHubIcon />
+          View on GitHub
+        </a>
+      )}
+    </div>
+  )
+}
+
+function ExternalLinkIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+      <polyline points="15 3 21 3 21 9" />
+      <line x1="10" y1="14" x2="21" y2="3" />
+    </svg>
+  )
+}
+
+function GitHubIcon() {
+  return (
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12" />
+    </svg>
+  )
+}

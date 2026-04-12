@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="7" fill="#6366f1"/>
+  <!-- A glyph: two diagonal strokes meeting at top + crossbar -->
+  <path d="M8 24 L13 10 L18 24 M10.5 19 L15.5 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- K glyph: vertical stroke + two diagonal strokes -->
+  <path d="M20 10 L20 24 M20 17 L25.5 10 M20 17 L25.5 24" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>
