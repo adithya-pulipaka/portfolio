@@ -177,41 +177,43 @@ Single-page layout with anchored sections (better for LinkedIn sharing — one U
 
 ## 9. Implementation Phases
 
-### Phase 1 — Foundation
-- [ ] Create `portfolio-v2` branch from master
-- [ ] Bootstrap Next.js 15 project (App Router, TypeScript, Tailwind v4)
-- [ ] Root layout, global styles, CSS variables for theme
-- [ ] Navbar component (anchors + theme toggle)
-- [ ] Favicon + AK monogram (SVG)
+### Phase 1 — Foundation ✅ Complete
+- [x] Create `portfolio-v2` branch from master
+- [x] Bootstrap Next.js 15 project (App Router, TypeScript, Tailwind v4)
+- [x] Root layout, global styles, CSS variables for theme
+- [x] Navbar component (anchors + theme toggle)
+- [x] Favicon + AK monogram (SVG)
 
-### Phase 2 — Portfolio Sections
-- [ ] Hero section
-- [ ] About section
-- [ ] Experience section (data-file driven)
-- [ ] Projects section (data-file driven)
-- [ ] Contact section (social links + placeholder form)
-- [ ] Smooth scroll, responsive layout
+### Phase 2 — Portfolio Sections ✅ Complete
+- [x] Hero section
+- [x] About section
+- [x] Experience section (data-file driven)
+- [x] Projects section (data-file driven)
+- [x] Contact section (social links + placeholder form)
+- [x] Smooth scroll, responsive layout
 
-### Phase 3 — Blog
-- [ ] MDX data layer (`lib/blog/index.ts` — `getPosts`, `getPost`)
-- [ ] Blog listing page `/blog`
-- [ ] Individual post page `/blog/[slug]`
-- [ ] MongoDB Atlas setup + `PostEngagement` model + singleton client
-- [ ] `/api/blog/likes` route + `LikeButton` component
-- [ ] `/api/blog/views` route + `ViewCounter` component
-- [ ] `ShareButtons` component (LinkedIn + clipboard)
+### Phase 3 — Blog ✅ Complete
+- [x] MDX data layer (`lib/blog/index.ts` — `getPosts`, `getPost`)
+- [x] Blog listing page `/blog`
+- [x] Individual post page `/blog/[slug]`
+- [x] MongoDB Atlas setup + `PostEngagement` model + singleton client
+- [x] `/api/blog/likes` route + `LikeButton` component
+- [x] `/api/blog/views` route + `ViewCounter` component
+- [x] `ShareButtons` component (LinkedIn + clipboard)
 
-### Phase 4 — Polish + Deploy
-- [ ] Dynamic OG images (`next/og`) for posts + portfolio page
-- [ ] Mobile-first responsive pass
-- [ ] Transition/animation polish
-- [ ] Environment variables setup (MongoDB URI)
-- [ ] Deploy to Vercel
-- [ ] Point `adithyakashyap.com` DNS to Vercel
+### Phase 4 — Polish + Deploy ✅ Complete (pending DNS cutover)
+- [x] Dynamic OG images (`next/og`) for posts + portfolio page
+- [x] Mobile-first responsive pass
+- [x] Transition/animation polish
+- [x] Environment variables setup (MongoDB URI)
+- [x] Deploy to Vercel (live on preview URL — `portfolio-v2` branch)
+- [ ] Point `adithyakashyap.com` DNS to Vercel ← pending content/design sign-off
 
 ---
 
-## 10. Future Phases (Out of Scope for v1)
+## 10. Future Phases (Pending)
+
+> **Current status:** Paused after v1 completion. Content tweaks, design polish, and bug fixes in progress before any new features are implemented.
 
 - **Auth + Admin**: Clerk or NextAuth.js — log in to see engagement analytics, manage posts, feature/unfeature posts
 - **Contact form backend**: Resend API for email delivery
