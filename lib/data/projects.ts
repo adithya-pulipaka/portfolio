@@ -4,6 +4,7 @@ export type Project = {
   tags: string[]
   github?: string
   demo?: string
+  pinned?: boolean
 }
 
 // TODO: Replace with your real projects
@@ -15,6 +16,7 @@ export const projects: Project[] = [
     tags: ['Next.js 15', 'TypeScript', 'Tailwind v4', 'MongoDB'],
     github: 'https://github.com/adithya-pulipaka/portfolio',
     demo: 'https://adithyakashyap.com',
+    pinned: true,
   },
   {
     name: 'Project Two',

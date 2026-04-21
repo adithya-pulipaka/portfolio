@@ -41,7 +41,7 @@ export function Hero() {
             className="w-1.5 h-1.5 rounded-full"
             style={{ background: "oklch(0.7 0.2 145)" }} // green dot
           />
-          Open to opportunities
+          Open to conversations
         </div>
 
         {/* Name */}
@@ -79,7 +79,7 @@ export function Hero() {
             <ArrowRight />
           </Link>
           <Link
-            href="/#projects"
+            href="/about"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200"
             style={{
               border: "1px solid var(--border)",
@@ -96,7 +96,7 @@ export function Hero() {
               el.style.color = "var(--fg-muted)";
             }}
           >
-            View projects
+            About me
           </Link>
           <Link
             href="/#contact"
