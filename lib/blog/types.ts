@@ -1,3 +1,5 @@
+export type PostType = 'til' | 'essay' | 'build-log' | 'opinion'
+
 export type PostMeta = {
   slug: string
   title: string
@@ -6,6 +8,7 @@ export type PostMeta = {
   tags: string[]
   featured: boolean
   readingTime: string
+  type: PostType
 }
 
 export type Post = PostMeta & {

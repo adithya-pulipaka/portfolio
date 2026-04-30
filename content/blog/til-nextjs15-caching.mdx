@@ -1,0 +1,48 @@
+---
+title: "TIL: Next.js 15 No Longer Caches fetch() by Default"
+date: "2026-04-29"
+description: "Next.js 15 changed the default fetch cache behavior. Requests are now uncached unless you explicitly opt in — the opposite of Next.js 13/14."
+tags: ["nextjs", "til", "caching"]
+featured: false
+type: til
+---
+
+In Next.js 13 and 14, `fetch()` calls inside Server Components were cached by default. You had to opt out with `{ cache: 'no-store' }` if you wanted fresh data on every request.
+
+**Next.js 15 reversed this.** Fetch requests are now uncached by default — same as native browser `fetch()`. You opt in to caching explicitly.
+
+## What changed
+
+```typescript
+// Next.js 13/14: cached by default
+const data = await fetch('https://api.example.com/posts')
+
+// To get fresh data every time, you had to say:
+const data = await fetch('https://api.example.com/posts', { cache: 'no-store' })
+```
+
+```typescript
+// Next.js 15: NOT cached by default
+const data = await fetch('https://api.example.com/posts')
+
+// To cache it, you now opt in explicitly:
+const data = await fetch('https://api.example.com/posts', { next: { revalidate: 3600 } })
+// or for indefinite caching:
+const data = await fetch('https://api.example.com/posts', { cache: 'force-cache' })
+```
+
+## Why this tripped me up
+
+I was building a view counter that increments on every page load. During development, the view count was jumping unexpectedly — sometimes incrementing, sometimes not. I assumed it was a React StrictMode double-invocation issue or something with my MongoDB connection.
+
+It wasn't. The fetch calls in my API route were being cached from a previous version of the app, so the counter wasn't actually hitting MongoDB on every request.
+
+Once I realized Next.js 15 had changed the default and audited my caching setup, the behavior became predictable.
+
+## The takeaway
+
+If you're migrating a Next.js 13/14 app to 15, audit every `fetch()` call that previously relied on the implicit cache. You may need to add explicit `{ next: { revalidate: N } }` to restore the behavior you had before.
+
+For new projects on 15, the new default is actually more intuitive — it matches what you'd expect from a plain `fetch()` call. The old default was a footgun.
+
+Reference: [Next.js 15 upgrade guide](https://nextjs.org/docs/app/building-your-application/upgrading/version-15)

@@ -1,0 +1,62 @@
+---
+title: "Building This Portfolio: Stack Decisions and What I'd Do Differently"
+date: "2026-04-29"
+description: "A walkthrough of how I built this site — Next.js 15, Tailwind v4, MDX, MongoDB — and the tradeoffs I made along the way."
+tags: ["nextjs", "tailwind", "mongodb", "mdx", "portfolio"]
+featured: false
+type: build-log
+---
+
+I recently rebuilt my personal site from scratch. Here's what I chose, why, and what I'd reconsider.
+
+## The stack
+
+- **Next.js 15** (App Router, TypeScript) for the framework
+- **Tailwind CSS v4** for styling
+- **MDX** for blog content
+- **MongoDB Atlas** for engagement data (likes, views)
+- **Vercel** for hosting
+
+None of these are surprising choices for a Next.js developer in 2026, but the reasoning behind each one is worth documenting.
+
+## Next.js 15 and the App Router
+
+I went all-in on the App Router rather than keeping Pages Router compatibility. It's the right long-term bet, and for a new project there's no reason not to.
+
+The main thing the App Router gets right is the data fetching model. Server Components let you fetch data right where you need it — no prop drilling, no global state, no `getServerSideProps`. Once you internalize the mental model (components are server-rendered by default; add `'use client'` only when you need interactivity), the architecture feels clean.
+
+The gotcha that caught me: **fetch caching changed in Next.js 15**. In earlier versions, `fetch()` calls were cached by default. In 15, they're not. I had a view counter that was incrementing on every render during development and couldn't figure out why. The fix was explicit — but the default behavior change wasn't prominently advertised.
+
+## Tailwind CSS v4
+
+Tailwind v4 ships with a CSS-first config approach. Instead of a `tailwind.config.js`, you configure via CSS variables and `@theme` blocks in your stylesheet.
+
+The transition took some adjustment, but I like it. Theme values live in CSS, which means they're just CSS custom properties — you can use them anywhere, not just in Tailwind utility classes. That's a real improvement for a design system that mixes utility classes with component-level styles.
+
+## MDX for blog content
+
+Blog posts live in `/content/blog/` as MDX files. A thin data layer (`lib/blog/index.ts`) wraps the file system reads — so if I ever want to swap in a CMS, I only change one file.
+
+I considered Contentful and Notion as content sources, but for the early stage MDX is the right call. No external dependency, version-controlled content, and writing in a code editor is genuinely pleasant.
+
+The tradeoff: authoring in MDX requires a Git workflow. That's fine for me but would be a problem if I wanted to bring in a non-technical collaborator.
+
+## MongoDB Atlas for engagement
+
+Likes and view counts live in a `post_engagement` collection on MongoDB Atlas (free M0 tier). Each post has a document with `slug`, `likes`, `views`, and `likedIPs` for deduplication.
+
+I chose MongoDB because I know it well and the free tier handles this workload easily. For a site at this scale, almost anything would work — SQLite via Turso would have been equally fine and arguably simpler.
+
+## What I'd do differently
+
+**Start with the content, not the infrastructure.** I spent a lot of time on the engagement features (likes, views, OG images) before I had a single real post written. None of that matters until there's something worth reading. Ship the simplest blog first, then add features as they become relevant.
+
+**Design mobile-first from day one.** I designed desktop-first and did a responsive pass at the end. It worked, but the responsive pass always surfaces decisions you'd have made differently if you'd started mobile.
+
+**Write during the build.** The best time to write a build log post is while you're building. Context is fresh, the decisions are top of mind, and you end up with documentation that's actually useful. I'm writing this retrospectively and already forgetting things.
+
+## What worked well
+
+The architecture is clean and extensible. The data layer abstraction means swapping in a CMS later is a single-file change. The MongoDB engagement model is simple enough to be maintainable but expressive enough to add features later. And Next.js + Vercel is genuinely zero-config deployment — push to a branch, get a preview URL, merge to ship.
+
+The site does what I need it to do. That's the real success criterion.

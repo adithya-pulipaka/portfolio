@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import readingTime from 'reading-time'
-import type { Post, PostMeta } from './types'
+import type { Post, PostMeta, PostType } from './types'
 
 const BLOG_DIR = path.join(process.cwd(), 'content/blog')
 
@@ -24,6 +24,7 @@ export function getPosts(): PostMeta[] {
         tags: (data.tags as string[]) ?? [],
         featured: (data.featured as boolean) ?? false,
         readingTime: readingTime(content).text,
+        type: ((data.type as PostType) ?? 'essay'),
       }
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
@@ -44,6 +45,7 @@ export function getPost(slug: string): Post | null {
     tags: (data.tags as string[]) ?? [],
     featured: (data.featured as boolean) ?? false,
     readingTime: readingTime(content).text,
+    type: ((data.type as PostType) ?? 'essay'),
     content,
   }
 }

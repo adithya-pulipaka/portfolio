@@ -1,5 +1,12 @@
 import Link from 'next/link'
-import type { PostMeta } from '@/lib/blog/types'
+import type { PostMeta, PostType } from '@/lib/blog/types'
+
+const TYPE_LABELS: Record<PostType, string> = {
+  til: 'TIL',
+  essay: 'Essay',
+  'build-log': 'Build Log',
+  opinion: 'Opinion',
+}
 
 type Props = {
   post: PostMeta
@@ -19,15 +26,23 @@ export function PostCard({ post, engagement }: Props) {
           border: '1px solid var(--border)',
         }}
       >
-        {/* Top row: date + featured badge */}
+        {/* Top row: date + type badge + featured badge */}
         <div className="flex items-center justify-between mb-3">
-          <time className="text-xs" style={{ color: 'var(--fg-muted)' }}>
-            {new Date(post.date).toLocaleDateString('en-US', {
-              month: 'short',
-              day: 'numeric',
-              year: 'numeric',
-            })}
-          </time>
+          <div className="flex items-center gap-2">
+            <time className="text-xs" style={{ color: 'var(--fg-muted)' }}>
+              {new Date(post.date).toLocaleDateString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric',
+              })}
+            </time>
+            <span
+              className="px-2 py-0.5 rounded text-xs"
+              style={{ border: '1px solid var(--border)', color: 'var(--fg-muted)' }}
+            >
+              {TYPE_LABELS[post.type]}
+            </span>
+          </div>
           {post.featured && (
             <span
               className="px-2 py-0.5 rounded text-xs font-medium"
