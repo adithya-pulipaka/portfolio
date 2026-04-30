@@ -98,26 +98,6 @@ export function Hero() {
           >
             About me
           </Link>
-          <Link
-            href="/#contact"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200"
-            style={{
-              border: "1px solid var(--border)",
-              color: "var(--fg-muted)",
-            }}
-            onMouseEnter={(e) => {
-              const el = e.currentTarget as HTMLAnchorElement;
-              el.style.borderColor = "var(--fg-muted)";
-              el.style.color = "var(--fg)";
-            }}
-            onMouseLeave={(e) => {
-              const el = e.currentTarget as HTMLAnchorElement;
-              el.style.borderColor = "var(--border)";
-              el.style.color = "var(--fg-muted)";
-            }}
-          >
-            Contact me
-          </Link>
         </div>
 
         {/* Social icons */}

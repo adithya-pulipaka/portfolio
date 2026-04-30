@@ -211,19 +211,42 @@ Single-page layout with anchored sections (better for LinkedIn sharing — one U
 
 ---
 
-## 10. Future Phases (Pending)
+## 10. Direction Change — Writer + Builder Focus (2026-04-29)
 
-> **Current status:** Paused after v1 completion. Content tweaks, design polish, and bug fixes in progress before any new features are implemented.
+> The portfolio has shifted from a job-seeker portfolio to a **writer + builder** identity. Blog is the primary focus. Projects and Contact are deprioritized until there is content to show.
 
-- **Auth + Admin**: Clerk or NextAuth.js — log in to see engagement analytics, manage posts, feature/unfeature posts
-- **Contact form backend**: Resend API for email delivery
-- **CMS integration**: Swap `lib/blog/index.ts` implementation to pull from Contentful, Sanity, or Notion
-- **Comments**: Add comment threads per post (requires auth)
-- **RSS feed**: `/feed.xml` for blog subscribers
+### What changed:
+- Home page now shows: Hero + LatestPosts only (Projects and Contact sections removed)
+- `/about` page now shows: About + Experience only (Projects section removed)
+- Hero CTA: "Read my blog" + "About me" only (Contact me button removed)
+- Nav unchanged: Home | Blog | About
+
+### Sections in backlog (hidden, not deleted — re-enable when ready):
+- **Projects section**: Re-enable when 2–3 projects are ready to showcase
+- **Contact section**: Re-enable with Resend email backend when ready
 
 ---
 
-## 11. Verification Checklist
+## 11. Upcoming Priorities (ordered)
+
+### Now (pre-launch):
+1. **DNS cutover** — point `adithyakashyap.com` to Vercel once content is ready
+
+### Post-launch — active writing phase:
+2. **Write consistently** — 2–3 posts/week; MDX files in `/content/blog/`
+3. **RSS feed** — `/feed.xml` for blog subscribers; high value for a writing-focused site, low effort
+
+### Later — when traction/content warrants it:
+4. **Re-enable Projects section** — when 2–3 projects are ready
+5. **Contact form backend** — Resend API for email delivery
+6. **Re-enable Contact section** — after backend is wired up
+7. **Auth + Admin** — Clerk or NextAuth.js for engagement analytics, post management
+8. **CMS integration** — swap `lib/blog/index.ts` for Contentful/Sanity/Notion if MDX authoring becomes painful
+9. **Comments** — per-post threads (requires auth)
+
+---
+
+## 12. Verification Checklist
 
 1. `npm run dev` → portfolio at `/`, all sections visible, smooth scroll works
 2. Dark/light toggle → both modes render correctly
